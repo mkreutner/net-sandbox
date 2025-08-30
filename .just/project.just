@@ -62,8 +62,14 @@ history-clean CONTAINER:
     fi
     uid=$(id -u)
     gid=$(id -g)
+    username=$(id -u --name)
+    groupname=$(id -u --name)
     sed -i "s/UID=.*/UID=$uid/" .env
     sed -i "s/GID=.*/GID=$gid/" .env
+    sed -i "s/USERNAME=.*/USERNAME=$username/" .env
+    sed -i "s/REPOSITORY=.*/REPOSITORY=$username/" .env
+    # sed -i "s/COMMENT=.*/COMMENT=$username/" .env
 
-    mkdir -p data/usr/lib/jvm
+    mkdir -p data/usr/share/dotnet/sdk
+    mkdir -p data/tmp
     touch data/tmp/.bash_history

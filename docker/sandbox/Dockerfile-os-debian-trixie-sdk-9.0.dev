@@ -39,7 +39,7 @@ RUN apt-get -qq -y update && apt-get -qq -y upgrade \
     && ln -fs /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
     && dpkg-reconfigure -f noninteractive tzdata
 
-COPY ${IMG_TAG}-packages-microsoft-prod.deb /tmp/packages-microsoft-prod.deb
+COPY ${IMG_NAME}-${IMG_TAG}-packages-microsoft-prod.deb /tmp/packages-microsoft-prod.deb
 
 RUN dpkg -i /tmp/packages-microsoft-prod.deb \
     && rm /tmp/packages-microsoft-prod.deb \

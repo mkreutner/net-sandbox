@@ -2,7 +2,7 @@ services:
   sandbox:
     build:
       context: ./docker/sandbox
-      dockerfile: Dockerfile-${BASE_SDK_VERSION:-9.0}.${COMMON_ENVIRONMENT}
+      dockerfile: Dockerfile-os-${BASE_IMG_NAME}-${BASE_IMG_TAG}-sdk-${BASE_SDK_VERSION}.${COMMON_ENVIRONMENT}
       args:
         - IMG_NAME=${BASE_IMG_NAME}
         - IMG_TAG=${BASE_IMG_TAG}
@@ -12,7 +12,7 @@ services:
         - COMMENT=${COMMON_COMMENT:-Developer}
         - SHELL=${COMMON_SHELL:-sh}
         - TIMEZONE=${COMMON_TIMEZONE:-UTC}
-        - SDK_VERSION=${BASE_SDK_VERSION:-9.0}
+        - SDK_VERSION=${BASE_SDK_VERSION}
     container_name: sandbox
     hostname: sandbox
     restart: no # unless-stopped
@@ -22,7 +22,7 @@ services:
       - 8080:8080
     volumes:
       - "./src/sandbox:/home/${COMMON_USERNAME:-developer}"
-      #- "sndbx_sandbox_net:/usr/lib/jvm/"
+      - "sndbx_sandbox_net:/usr/share/dotnet/sdk"
     user: "${COMMON_USERNAME:-developer}"
     working_dir: "/home/${COMMON_USERNAME:-developer}"
 
@@ -89,4 +89,4 @@ volumes:
     driver_opts:
       type: "none"
       o: "bind"
-      device: "./data/usr/lib/jvm"
+      device: "./data/usr/share/dotnet/sdk"

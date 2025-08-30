@@ -55,3 +55,8 @@ nunit-*.xml
 
 # VSCode
 .vscode
+
+# Project
+.env
+data/tmp
+data/usr
