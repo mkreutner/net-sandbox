@@ -7,7 +7,12 @@ build *OPTIONS:
 
 # Create and start containers (detached)
 up *OPTIONS:
-    @docker compose up -d {{OPTIONS}}
+    #!/usr/bin/env sh
+    echo "ℹ️  Update PATH"
+    export PATH="$(pwd)/data/usr/share/dotnet/sdk/9.0.304:$PATH"
+    echo "$PATH"
+    echo "ℹ️  Starting workspace"
+    docker compose up -d {{OPTIONS}}
 
 # Stop and remove containers, networks
 down:
