@@ -20,6 +20,7 @@ services:
     stdin_open: true
     ports:
       - 8080:8080
+      - 8443:8443
     volumes:
       - "./src/sandbox:/home/${COMMON_USERNAME:-developer}"
       - "sndbx_sandbox_net:/usr/share/dotnet/sdk"

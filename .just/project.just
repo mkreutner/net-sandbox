@@ -72,4 +72,6 @@ history-clean CONTAINER:
 
     mkdir -p data/usr/share/dotnet/sdk
     mkdir -p data/tmp
-    touch data/tmp/.bash_history
+    mkdir -p src/sandbox/workspaces
+    cp docker/sandbox/.bashrc src/sandbox/.bashrc
+    touch src/sandbox/.bash_history
