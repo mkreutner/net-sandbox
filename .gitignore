@@ -57,6 +57,7 @@ nunit-*.xml
 .vscode
 
 # Project
+src/sandbox/*
 .env
 data/tmp
 data/usr

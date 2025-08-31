@@ -74,4 +74,5 @@ history-clean CONTAINER:
     mkdir -p data/tmp
     mkdir -p src/sandbox/workspaces
     cp docker/sandbox/.bashrc src/sandbox/.bashrc
+    cp docker/sandbox/.bash_aliases src/sandbox/.bash_aliases
     touch src/sandbox/.bash_history
